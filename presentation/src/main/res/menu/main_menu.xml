@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/action_state_1"
+            android:title="@string/ui_state_1"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/action_state_2"
+            android:title="@string/ui_state_2"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/action_state_3"
+            android:title="@string/ui_state_3"
+            app:showAsAction="never" />
+    </group>
+
+</menu>

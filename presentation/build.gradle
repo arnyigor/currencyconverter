@@ -50,4 +50,5 @@ dependencies {
     kapt deps.additional.moxyCompiler
     implementation deps.additional.moxyAppCompat
     implementation deps.additional.moxyAndroid
+    implementation 'com.github.razir.progressbutton:progressbutton:1.0.3'
 }

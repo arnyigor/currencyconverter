@@ -1,11 +1,15 @@
 package com.arny.helpers.utils
 
+import android.text.Editable
+import android.widget.EditText
+import com.arny.helpers.interfaces._TextWatcher
 import io.reactivex.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers.io
 import java.util.concurrent.TimeUnit
+
 
 /**
  * Subscribe on function value
@@ -23,6 +27,16 @@ fun <T> subscribeOnFunctionValue(onLoadFunc: () -> T): Observable<T> {
         errors.flatMap { _ ->
             return@flatMap Observable.timer(1, TimeUnit.MILLISECONDS)
         }
+    }
+}
+
+fun observeEditText(editText: EditText): Observable<String> {
+   return Observable.create<String>{emmiter->
+        editText.addTextChangedListener(object : _TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                emmiter.onNext(s.toString())
+            }
+        })
     }
 }
 

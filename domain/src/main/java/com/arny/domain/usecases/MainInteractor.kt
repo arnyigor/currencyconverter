@@ -1,5 +1,6 @@
 package com.arny.domain.usecases
 
+import com.arny.domain.Constants
 import com.arny.domain.models.Currency
 import com.arny.domain.repositories.BaseRepository
 import com.arny.domain.repositories.CurrencyData
@@ -18,6 +19,10 @@ class MainInteractor(
         return baseRepository.isConnected()
     }
 
+    fun getUIState(): Int {
+        return baseRepository.getPrefInt(Constants.PREFS.UI_STATE)
+    }
+
     fun getCurrencies(): Observable<ArrayList<Currency>> {
         val remoteCurrencies = remoteData.getAllCurrencies()
         if (baseRepository.isConnected()) {
@@ -33,6 +38,10 @@ class MainInteractor(
         val codeTo = toCurrency.code
         return remoteData.convert(codeFrom, codeTo)
                 .map { MathUtils.round(from * (it.coefficient ?: 0.0), 2) }
+    }
+
+    fun changeUIState(i: Int) {
+        baseRepository.setPrefInt(Constants.PREFS.UI_STATE,i)
     }
 
 }

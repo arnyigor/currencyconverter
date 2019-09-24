@@ -5,4 +5,7 @@
     <string name="convert_to">Конвертировать в</string>
     <string name="convert">Конвертировать</string>
     <string name="result">Результат:</string>
+    <string name="ui_state_1">Первый вариант</string>
+    <string name="ui_state_2">Второй вариант</string>
+    <string name="ui_state_3">Третий вариант</string>
 </resources>

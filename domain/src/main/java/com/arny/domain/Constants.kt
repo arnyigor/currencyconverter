@@ -8,5 +8,6 @@ object Constants {
 
     object PREFS{
         const val ALL_CURRENCY="all_currencies"
+        const val UI_STATE="ui_state"
     }
 }
